@@ -14,7 +14,7 @@ const EventList = (props) => {
       sx={{
         display: 'flex',
         flexWrap: 'wrap',
-        justifyContent: 'start',
+        justifyContent: 'center',
       }}
     >
       {events && events.map((item, key) => {

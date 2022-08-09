@@ -5,8 +5,8 @@
 }
 
 body {
-  font-family: 'Open Sans', 'Lato', sans-serif;
-  background: #ECA72C;
+  font-family: Lobster;
+  margin: 0;
 }
 
 h1,
@@ -14,23 +14,29 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+span {
   font-family: 'Lato', sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+p, a {
+  font-family: 'Poppins', sans-serif;
 }
 
 .expired-notice {
   text-align: center;
-  padding: 2rem;
-  border: 1px solid #ECA72C;
   border-radius: 0.25rem;
   margin: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
 .expired-notice > span {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #EE5622;
 }
 
 .expired-notice > p {
@@ -53,10 +59,6 @@ h6 {
   align-items: center;
   display: flex;
   flex-direction: column;
-}
-
-.show-counter .countdown.danger {
-  color: #ff0000;
 }
 
 .show-counter .countdown > p {

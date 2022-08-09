@@ -13,6 +13,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Chip from '@mui/material/Chip';
+import StarIcon from '@mui/icons-material/Star';
 
 import CountdownTimer from '../../components/timer/CountDownTimer';
 
@@ -33,12 +34,9 @@ const eventsIdPage = () => {
 
   const router = useRouter();
 
-  console.log(router.pathname);
   const queryId = router.query.eventId;
 
   const event = getEventById(queryId);
-
-  console.log(event)
 
   if (!event) {
     return <Typography>No event found !!!</Typography>
@@ -73,16 +71,21 @@ const eventsIdPage = () => {
   const dateTimeUntilEvent = NOW_IN_MS + TimeBeforeTheEvent;
 
   return (
-    <Box sx={{ 
+    <Box 
+    width= {{ xs: '100%', sm: '80%', md: '50%', xl: '40%' }}
+    sx={{
       transform: 'translate(-50%, -50%)',
       position: 'absolute',
       top: '50%',
       left: '50%',
-      flexGrow: 1 }}>
+      
+    }}>
       <Grid container columns={{ xs: 12, sm: 12, md: 12 }}>
         <Grid item xs={12} sm={12} md={12}>
           <Item>
-            <Typography variant="h4">{event.title}</Typography>
+            <Typography 
+            sx={{paddingTop: 3}}
+            variant="h4">{event.title}</Typography>
 
             <ImageListItem>
               <img
@@ -114,19 +117,26 @@ const eventsIdPage = () => {
             <Stack
               direction={{ xs: 'column', sm: 'row' }}
               spacing={{ xs: 1, sm: 2, md: 4 }}
-              justifyContent = 'space-between'
+              justifyContent='space-between'
             >
-              <Chip 
-              sx={{boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',marginBottom: 2, marginTop: 1}}
-              icon={<LocationOnIcon />} label={formatAddress} color="success" />
-              <Chip 
-              sx={{boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',marginBottom: 2, marginTop: 1}}
-              icon={< CalendarMonthIcon />} label={humanReadableDate} variant="secondary" />
+              <Chip
+                sx={{ boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px', marginBottom: 2, marginTop: 1 }}
+                icon={<LocationOnIcon />} label={formatAddress} color="success" />
+              <Chip
+                sx={{ boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px', marginBottom: 2, marginTop: 1 }}
+                icon={< CalendarMonthIcon />} label={humanReadableDate} variant="secondary" />
             </Stack>
 
             <Typography>{event.description}</Typography>
-            <Typography>{event.isFeatured}</Typography>
-
+            {event.isFeatured &&
+              <Box
+                sx={{
+                  position: 'absolute', top: 15, right: 15,
+                }}
+              >
+                <Chip icon={<StarIcon />} label="Stared" color="success" />
+              </Box>
+            }
           </Item>
         </Grid>
       </Grid>

@@ -2,13 +2,13 @@ import React from 'react'
 
 import Box from '@mui/material/Box';
 
-import Card from '@mui/material/Card';
+import Card from '@mui/joy/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Chip from '@mui/material/Chip';
-import JoyLink from '@mui/joy/Link';
+import Link from '@mui/joy/Link';
 import { Button } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -17,17 +17,7 @@ import StarIcon from '@mui/icons-material/Star';
 
 const EventItem = (props) => {
 
-
-  console.log(props);
-
   const { title, id, image, location, date, description } = props.item;
-
-  console.log(title);
-  console.log(id);
-  console.log(image);
-  console.log(location);
-  console.log(date);
-  console.log(description);
 
   const humanReadableDate = new Date(date).toLocaleDateString('fr-FR', {
     day: 'numeric', month: 'long', year: 'numeric',
@@ -79,18 +69,18 @@ const EventItem = (props) => {
         >
 
           <Button variant="contained" color="primary">
-            <JoyLink
+            <Link
               href={exploreLink}
               underline="none"
-              variant="soft"
-              color="success"
+              variant="soft" 
+              color="secondary"
               endDecorator={
-                <Chip icon={<ArrowForwardIcon />} label="Explore!" color="success" size="sm" sx={{ borderRadius: 'xs' }} />
+                <Chip icon={<ArrowForwardIcon />} label="Explore!" color="success" size="sm" />
               }
               sx={{ '--Link-gap': '0.5rem', pr: 0, pl: 1 }}
             >
               Explore event
-            </JoyLink>
+            </Link>
           </Button>
         </CardActions>
       </Card>
